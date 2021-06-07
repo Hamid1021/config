@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["hamid1021.pythonanywhere.com",'*']
+ALLOWED_HOSTS = ["your domain",]
 
 
 # Application definition
@@ -90,16 +90,16 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': BASE_DIR / 'db_name.sqlite3',
     }
 }
 
 # DATABASES = {
     # 'default': {
         # 'ENGINE': 'django.db.backends.postgresql',
-        # 'NAME': 'mydatabase',
-        # 'USER': 'mydatabaseuser',
-        # 'PASSWORD': 'mypassword',
+        # 'NAME': 'NAME',
+        # 'USER': 'USER',
+        # 'PASSWORD': 'PASSWORD',
         # 'HOST': '127.0.0.1',
         # 'PORT': '5432',
     # }
@@ -108,9 +108,9 @@ DATABASES = {
 # DATABASES = {
     # 'default': {
         # 'ENGINE': 'django.db.backends.mysql',
-        # 'NAME': 'Hamid1021$default',
-        # 'USER': 'Hamid1021',
-        # 'PASSWORD': 'Dr.Darker1021',
+        # 'NAME': 'NAME',
+        # 'USER': 'USER',
+        # 'PASSWORD': 'PASSWORD',
         # 'HOST': 'Hamid1021.mysql.pythonanywhere-services.com',   # Or an IP Address that your DB is hosted on
         # 'PORT': '3306',
         # 'OPTIONS': {
