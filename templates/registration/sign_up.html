@@ -1,0 +1,203 @@
+{% load static %}
+{% load widget_tweaks %}
+<!DOCTYPE html>
+<html lang="fa-IR">
+   <head>
+      <style>
+         .center{
+            margin-right: auto!important;
+            margin-left: auto!important;
+            text-align: center;
+         }
+      </style>
+      <!-- Required meta tags-->
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="description" content="Colorlib Templates">
+      <meta name="author" content="Colorlib">
+      <meta name="keywords" content="Colorlib Templates">
+      <!-- Title Page-->
+      <title>ثبت نام</title>
+      <!-- Icons font CSS-->
+      <link href="{% static 'vendor/mdi-font/css/material-design-iconic-font.min.css' %}" rel="stylesheet" media="all">
+      <link href="{% static 'vendor/font-awesome-4.7/css/font-awesome.min.css' %}" rel="stylesheet" media="all">
+      <!-- Font special for pages-->
+      <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+      <!-- Vendor CSS-->
+      <link href="{% static 'vendor/select2/select2.min.css' %}" rel="stylesheet" media="all">
+      <link href="{% static 'vendor/datepicker/daterangepicker.css' %}" rel="stylesheet" media="all">
+      <!-- Main CSS-->
+      <link href="{% static 'css/main.css' %}" rel="stylesheet" media="all">
+   </head>
+   <body>
+      <div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
+         <div class="wrapper wrapper--w680">
+            <div class="card card-4">
+               <div class="card-body">
+                  <h2 class="title">فرم ثبت نام</h2>
+                  <form method="POST">
+                     {% csrf_token %}
+                     <div class="row row-space">
+                        <div class="col-2">
+                           <div class="input-group">
+                              <label for="username" class="label">نام کاربری</label>
+                              {{form.username}}
+                           </div>
+                        </div>
+                        <div class="col-2">
+                           <div class="input-group">
+                              <label for="phone" class="label">شماره همراه</label>
+                              {{ form.phone}}
+                           </div>
+                        </div>
+                     </div>
+                     <div class="row row-space">
+                        <div class="col-2">
+                           <div class="input-group">
+                              <label for="first_name" class="label">نام شما</label>
+                              {{form.first_name}}
+                           </div>
+                        </div>
+                        <div class="col-2">
+                           <div class="input-group">
+                              <label for="last_name" class="label">نام خانوادگی شما</label>
+                              {{form.last_name}}
+                           </div>
+                        </div>
+                     </div>
+
+                     <div class="row row-space">
+                        <div class="col-2">
+                           <div class="input-group">
+                              <label for="meli_code" class="label">کد ملی شما</label>
+                              {{form.meli_code}}
+                           </div>
+                        </div>
+                        <!--<div class="col-2">-->
+                        <!--   <div class="input-group">-->
+                        <!--      <label for="shenasname_code" class="label">ShenasNamee</label>-->
+                        <!--     {%comment%} {{form.shenasname_code}}{%endcomment%}-->
+                        <!--   </div>-->
+                        <!--</div>-->
+                     </div>
+
+                     <div class="row row-space">
+                        <div class="col-2">
+                           <div class="input-group">
+                              <label for="birthday" class="label">تاریخ تولد به میلادی</label>
+                              <div class="input-group-icon">
+                                 {{form.birthday}}
+                              </div>
+                              <div class="input-group-icon">
+                                <h4><a href="https://www.time.ir/">تبدیل تاریخ به میلادی</a></h4>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-2">
+                           <div class="input-group">
+                              <label class="label">جنسیت</label>
+                              <div class="p-t-10">
+                                 {% for radio in form.gender %}
+                                     <label for="{% cycle 'gender_0' 'gender_1' %}" class="radio-container m-r-45">{% cycle 'مرد' 'زن' %}
+                                         {% if forloop.conter0 == 1 %}
+                                             {{ radio.tag|attr:"id:gender1"|remove_attr:"checked" }}
+                                          {% else %}
+                                             {{ radio.tag }}
+                                         {% endif %}
+                                         <span class="checkmark"></span>
+                                     </label>
+                                 {% endfor %}
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="row row-space">
+                        <div class="col-2">
+                           <div class="input-group">
+                              <label for="email" class="label">آدرس ایمیل</label>
+                              {{ form.email}}
+                           </div>
+                        </div>
+                        <div class="col-2">
+                           <div class="input-group">
+                              <label for="kode_moarefy" class="label">کد معرف</label>
+                              {{ form.kode_moarefy}}
+                           </div>
+                        </div>
+                     </div>
+                     {%comment%}<!--<div class="row row-space">-->
+                     <!--   <div class="col-2">-->
+                     <!--      <div class="input-group">-->
+                     <!--         <label for="password" class="label">Password</label>-->
+                     <!--         {{ form.password}}-->
+
+                     <!--      </div>-->
+                     <!--   </div>-->
+                     <!--   <div class="col-2">-->
+                     <!--      <div class="input-group">-->
+                     <!--         <label for="password1" class="label">Confrim Password</label>-->
+                     <!--
+                                    {{ form.password_confirm}}
+                                    -->
+                     <!--      </div>-->
+                     <!--   </div>-->
+                     <!--</div>-->{%endcomment%}
+                     <div class="p-t-15 center">
+                        <button class="btn btn--radius-2 btn--green" type="submit">ارسال</button>
+                     </div>
+                  </form>
+                  <div class="error">
+                     {% for err in error %}
+                        <span style="color: red;"class="help-block">{{ err }}</span><br>
+                     {% endfor %}
+                     {% for error in form.non_field_errors %}
+                        <span style="color: red;"class="help-block">{{ error }}</span><br>
+                     {% endfor %}
+                     {% for error in form.username.errors %}
+                        <span style="color: red;"class="help-block">{{ error }}</span><br>
+                     {% endfor %}
+                     {% for error in form.first_name.errors %}
+                        <span style="color: red;"class="help-block">{{ error }}</span><br>
+                     {% endfor %}
+                     {% for error in form.last_name.errors %}
+                        <span style="color: red;"class="help-block">{{ error }}</span><br>
+                     {% endfor %}
+                     {% for error in form.email.errors %}
+                        <span style="color: red;"class="help-block">{{ error }}</span><br>
+                     {% endfor %}
+                     {% for error in form.gender.errors %}
+                        <span style="color: red;"class="help-block">{{ error }}</span><br>
+                     {% endfor %}
+                     {% for error in form.birthday.errors %}
+                        <span style="color: red;"class="help-block">{{ error }}</span><br>
+                     {% endfor %}
+                     {% for error in form.password.errors %}
+                        <span style="color: red;"class="help-block">{{ error }}</span><br>
+                     {% endfor %}
+                     {% for error in form.password_confirm.errors %}
+                        <span style="color: red;"class="help-block">{{ error }}</span><br>
+                     {% endfor %}
+                     {% for error in form.kode_moarefy.errors %}
+                        <span style="color: red;"class="help-block">{{ error }}</span><br>
+                     {% endfor %}
+                     {% for error in form.phone.errors %}
+                        <span style="color: red;"class="help-block">{{ error }}</span><br>
+                     {% endfor %}
+                  </div>
+                  <br>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- Jquery JS-->
+      <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+      <!-- Vendor JS-->
+      <script src="{% static 'vendor/select2/select2.min.js' %}"></script>
+      <script src="{% static 'vendor/datepicker/moment.min.js' %}"></script>
+      <script src="{% static 'vendor/datepicker/daterangepicker.js' %}"></script>
+      <!-- Main JS-->
+      <script src="{% static 'js/global.js' %}"></script>
+   </body>
+   <!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>
+<!-- end document-->

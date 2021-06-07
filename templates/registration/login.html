@@ -1,0 +1,96 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fa-IR">
+   <head>
+      <style>
+         .center{
+            margin-right: auto!important;
+            margin-left: auto!important;
+            text-align: center;
+         }
+      </style>
+      <!-- Required meta tags-->
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="description" content="Colorlib Templates">
+      <meta name="author" content="Colorlib">
+      <meta name="keywords" content="Colorlib Templates">
+      <!-- Title Page-->
+      <title>ثبت نام</title>
+      <!-- Icons font CSS-->
+      <link href="{% static 'vendor/mdi-font/css/material-design-iconic-font.min.css' %}" rel="stylesheet" media="all">
+      <link href="{% static 'vendor/font-awesome-4.7/css/font-awesome.min.css' %}" rel="stylesheet" media="all">
+      <!-- Font special for pages-->
+      <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+      <!-- Vendor CSS-->
+      <link href="{% static 'vendor/select2/select2.min.css' %}" rel="stylesheet" media="all">
+      <link href="{% static 'vendor/datepicker/daterangepicker.css' %}" rel="stylesheet" media="all">
+      <!-- Main CSS-->
+      <link href="{% static 'css/main.css' %}" rel="stylesheet" media="all">
+   </head>
+   <body>
+      <div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
+         <div class="wrapper wrapper--w680">
+            <div class="card card-4">
+               <div class="card-body">
+                  <h2 class="title center">ورود به حساب</h2>
+                  <form method="POST">
+                     {% csrf_token %}
+                     <div class="row row-space">
+                        <div class="col-2 center">
+                           <div class="input-group">
+                              <label for="phone" class="label">شماره همراه</label>
+                              {{ form.phone_number}}
+                           </div>
+                        </div>
+                     </div>
+                     <h3 class="center">یا</h3><br>
+                     <div class="row row-space">
+                        <div class="col-2 center">
+                           <div class="input-group">
+                              <label for="email" class="label">آدرس ایمیل</label>
+                              {{ form.email}}
+                           </div>
+                        </div>
+                     </div>
+
+                     <div class="p-t-15 center">
+                        {% if status == 2 %}
+                        {% else %}
+                           <button class="btn col-2 btn--radius-2 btn--green" type="submit">ارسال</button>
+                        {% endif %}
+                     </div>
+                  </form>
+                  {% if status == 2 %}
+                  <form action="{%  url 'account:active_User' status user.custom_user_id %}" method="POST">
+                  {% csrf_token %}
+                     <div class="p-t-15 center">
+                      <button class="btn btn btn--radius-2 btn--blue col-2" type="submit">فعال سازی اکانت</button>
+                     </div>
+                  </form>
+                  {% endif %}
+                  <br>
+                  <div class="error center">
+                     {% for error in form.non_field_errors %}
+                        <span style="color: red;"class="help-block">{{ error }}</span><br>
+                     {% endfor %}
+                     {% for err in error %}
+                        <span style="color: red; font-size: 1.6rem;"class="help-block">{{ err }}</span><br>
+                     {% endfor %}
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- Jquery JS-->
+      <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+      <!-- Vendor JS-->
+      <script src="{% static 'vendor/select2/select2.min.js' %}"></script>
+      <script src="{% static 'vendor/datepicker/moment.min.js' %}"></script>
+      <script src="{% static 'vendor/datepicker/daterangepicker.js' %}"></script>
+      <!-- Main JS-->
+      <script src="{% static 'js/global.js' %}"></script>
+   </body>
+   <!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>
+<!-- end document-->
