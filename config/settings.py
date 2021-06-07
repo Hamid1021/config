@@ -87,12 +87,12 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 # DATABASES = {
     # 'default': {
@@ -105,19 +105,19 @@ DATABASES = {
     # }
 # }
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'Hamid1021$default',
-#         'USER': 'Hamid1021',
-#         'PASSWORD': 'Dr.Darker1021',
-#         'HOST': 'Hamid1021.mysql.pythonanywhere-services.com',   # Or an IP Address that your DB is hosted on
-#         'PORT': '3306',
-#         'OPTIONS': {
-#             'sql_mode': 'STRICT_ALL_TABLES',
-#         },
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'Hamid1021$default',
+        'USER': 'Hamid1021',
+        'PASSWORD': 'Dr.Darker1021',
+        'HOST': 'Hamid1021.mysql.pythonanywhere-services.com',   # Or an IP Address that your DB is hosted on
+        'PORT': '3306',
+        'OPTIONS': {
+            'sql_mode': 'STRICT_ALL_TABLES',
+        },
+    }
+}
 
 
 # Password validation

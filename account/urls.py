@@ -12,7 +12,7 @@ urlpatterns = [
     path('active_user/<int:status>/<custom_user_id>/', ConfrimSingUpView.as_view(), name='active_User'),
 
     # path('success_confrimed/<custom_user_id>/<int:code_send>/', ConfrimUserSuccessView.as_view(), name='Confrim_User_success'),
-    
+
     # path('ResentCode/<custom_user_id>/', ResentCode.as_view(), name='resent_code'),
     # path('confrimed_user_success', Confrim_User_success, name='Confrim_User_success'),
     # path('logout/', views.LogoutView.as_view(), name='logout'),
