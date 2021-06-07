@@ -8,6 +8,7 @@ defusedxml==0.7.1
 Django==3.1.7
 django-image-optimizer==1.0.1
 django-widget-tweaks==1.4.8
+djangorestframework==3.12.4
 idna==2.10
 isodate==0.6.0
 lxml==4.6.3

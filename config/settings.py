@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'sitemap.apps.SitemapConfig',
     'area.apps.OstanHaConfig',
     'image_optimizer',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
