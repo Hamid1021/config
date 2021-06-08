@@ -20,6 +20,8 @@ urlpatterns = [
     path('account/admin/', admin.site.urls),
     path('account/', include("account.urls", namespace="account")),
     path('', include("sitemap.urls", namespace="sitemap")),
+    path('', include("log_sms.urls", namespace="api_sms")),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]
 
 
